@@ -1,0 +1,1 @@
+Enter the name of the street and city into the input fields and an api call will be made to get the wikipedia articles and New York Times Articles that will appear on the screen as a list while the background will be replaced with a google map image of the location.
