@@ -36,7 +36,11 @@ function loadData() {
 			$nytHeaderElem.text('New York Times Article About Could Not Be Loaded');
 		});
 	
-	var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='+city+'&format=json&callback=wikiCallback'
+	var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='+city+'&format=json&callback=wikiCallback';
+	//creates alert if wiki api call doesn't come up in time
+	var wikiRequestTimeOut = setTimeout(function() {
+		alert( "Wiki API call failed!");
+	},8000);
 	$.ajax({
     url: wikiUrl,
     dataType: 'jsonp',
@@ -53,6 +57,7 @@ function loadData() {
 				'</a>' +
 				'</li>');
 		}
+		clearTimeout(wikiRequestTimeOut);
 		}
 	});
     return false;
