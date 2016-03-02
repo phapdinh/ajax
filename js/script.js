@@ -40,7 +40,7 @@ function loadData() {
 	//creates alert if wiki api call doesn't come up in time
 	var wikiRequestTimeOut = setTimeout(function() {
 		alert( "Wiki API call failed!");
-	},8000);
+		},8000);
 	$.ajax({
     url: wikiUrl,
     dataType: 'jsonp',
