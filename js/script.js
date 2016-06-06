@@ -14,10 +14,10 @@ function loadData() {
     // load streetview
 	var street = $('#street').val();
 	var city = $('#city').val()
-    // YOUR CODE GOES HERE!
+	//appends image to body tag
 	$body.append('<img class="bgimg" src="http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + street + ', ' + city +'">');
-	
-	var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+city+'&sort=newest&api-key=9e82af1889ef480cfe2022e2c15559ac:18:73018261'
+	//Makes api call to new york times
+	var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+ street + ', ' + city +'&sort=newest&api-key=9e82af1889ef480cfe2022e2c15559ac:18:73018261';
 	$.getJSON( url, function( data ) {
 		
 		$nytHeaderElem.text('New York Times Article About ' + city);
