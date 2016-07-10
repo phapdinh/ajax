@@ -26,7 +26,7 @@ function loadData() {
 			var artc = articles[i];
 			$nytElem.append(
 				'<li class="article">' +
-				'<a href="'+ artc.web_url +'">' +
+				'<a href="'+ artc.web_url +'" target="_blank">' +
 				artc.headline.main +
 				'</a>' +
 				'<p>' + artc.snippet + '</p>' +
@@ -52,7 +52,7 @@ function loadData() {
 			var web_url = 'https://en.wikipedia.org/wiki/' + artc;
 			$wikiElem.append(
 				'<li class="article">' +
-				'<a href="'+ web_url +'">' +
+				'<a href="'+ web_url +'" target="_blank">' +
 				artc +
 				'</a>' +
 				'</li>');
