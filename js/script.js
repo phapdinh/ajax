@@ -1,4 +1,3 @@
-
 function loadData() {
 
     var $body = $('body');
@@ -12,15 +11,14 @@ function loadData() {
     $nytElem.text("");
 
     // load streetview
-	var street = $('#street').val();
-	var city = $('#city').val()
+	var search = $('#search').val();
 	//appends image to body tag
-	$body.append('<img class="bgimg" src="http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + street + ', ' + city +'">');
+	$body.append('<img class="bgimg" src="http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + search +'">');
 	//Makes api call to new york times
-	var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+ street + ', ' + city +'&sort=newest&api-key=9e82af1889ef480cfe2022e2c15559ac:18:73018261';
+	var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?'+ $.param({q: search}) +'&sort=newest&api-key=9e82af1889ef480cfe2022e2c15559ac:18:73018261';
 	$.getJSON( url, function( data ) {
 		
-		$nytHeaderElem.text('New York Times Article About ' + city);
+		$nytHeaderElem.text('New York Times Article About ' + search);
 		var articles = data.response.docs;
 		for(var i = 0; i < articles.length; i++){
 			var artc = articles[i];
@@ -36,7 +34,7 @@ function loadData() {
 			$nytHeaderElem.text('New York Times Article About Could Not Be Loaded');
 		});
 	
-	var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='+city+'&format=json&callback=wikiCallback';
+	var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='+ search +'&format=json&callback=wikiCallback';
 	//creates alert if wiki api call doesn't come up in time
 	var wikiRequestTimeOut = setTimeout(function() {
 		alert( "Wiki API call failed!");
@@ -64,5 +62,3 @@ function loadData() {
 };
 
 $('#form-container').submit(loadData);
-
-// loadData();
