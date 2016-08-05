@@ -1,4 +1,4 @@
-function loadData() {
+function loadData(e) {
 
     var $body = $('body');
     var $wikiElem = $('#wikipedia-links');
@@ -58,7 +58,7 @@ function loadData() {
 		clearTimeout(wikiRequestTimeOut);
 		}
 	});
-    return false;
+	return false
 };
 
 $('#form-container').submit(loadData);
