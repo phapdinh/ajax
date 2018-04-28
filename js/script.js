@@ -15,7 +15,8 @@ function loadData(e) {
 	//appends image to body tag
 	$body.append('<img class="bgimg" src="http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + search +'">');
 	//Makes api call to new york times
-	var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?'+ $.param({q: search}) +'&sort=newest&api-key=9e82af1889ef480cfe2022e2c15559ac:18:73018261';
+	var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?'+ $.param({q: search}) +'&sort=newest&api-key=' + apiKey;
+    console.log('url', url)
 	$.getJSON( url, function( data ) {
 		
 		$nytHeaderElem.text('New York Times Article About ' + search);
